@@ -14,6 +14,10 @@ io.on('connection', socket => {
     socket.on('set_username', username => {
       socket.data.username = username
     })
+
+    socket.on('send_message', message => {
+      io.emit('receive_message', {message, authorId: socket.id, username: socket.data.username})
+    })
 })
 
 server.listen(PORT, () => console.log('Server is running on port ' + PORT))
