@@ -6,6 +6,14 @@ const PORT = 3001
 
 io.on('connection', socket => {
     console.log('a user connected', socket.id)
+
+    socket.on('disconnect', () => {
+      console.log('user disconnected', socket.id)
+    })
+
+    socket.on('set_username', username => {
+      socket.data.username = username
+    })
 })
 
 server.listen(PORT, () => console.log('Server is running on port ' + PORT))
