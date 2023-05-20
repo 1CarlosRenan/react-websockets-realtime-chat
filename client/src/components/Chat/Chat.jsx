@@ -27,6 +27,11 @@ export default function Chat({socket}) {
   return (
     <div>
       <h1>Chat</h1>
+      {
+        messages.map((message, index) => (
+          <p key={index}>{message.username}: {message.message}</p>
+        ))
+      }
       <input type="text" placeholder="Mensagem" ref={messageRef} />
       <button onClick={()=>handleSubmit()}>Enviar</button>
     </div>
