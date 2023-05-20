@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect } from "react"
+import style from './Chat.module.css'
 
 export default function Chat({socket}) { 
   const messageRef = useRef()
